@@ -11,19 +11,18 @@ import rest.model.User;
 import java.util.List;
 
 @Component
-public class Controller {
+public class ExampleController {
 
     @Autowired
     private RestTemplate restTemplate;
     private final String URL = "http://91.241.64.178:7081/api/users";
 
     public List<User> getAllUsers() {
-        ResponseEntity<List<User>> responseEntity = restTemplate.exchange(URL, HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<User>>() {
-                });
-
-        List<User> users = responseEntity.getBody();
-        return users;
+        ResponseEntity<List<User>> responseEntity = restTemplate
+                .exchange(URL, HttpMethod.GET, null,
+                        new ParameterizedTypeReference<>() {
+                        });
+        return responseEntity.getBody();
     }
 
     public void saveUser(User user) {

@@ -10,6 +10,10 @@ public class User {
     public User() {
     }
 
+    public User(Long id) {
+        this.id = id;
+    }
+
     public User(Long id, String name, String lastName, Byte age) {
         this.id = id;
         this.name = name;
